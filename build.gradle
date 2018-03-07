@@ -1,1 +1,13 @@
 apply plugin: 'java'
+
+repositories {
+  jcenter()
+  mavenCentral()
+}
+
+def bbversion = "1.7.9"
+
+dependencies {
+  compile group: 'net.bytebuddy', name: 'byte-buddy', version: "${bbversion}"
+  compile group: 'net.bytebuddy', name: 'byte-buddy-agent', version: "${bbversion}"
+}

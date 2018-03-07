@@ -7,7 +7,7 @@ repositories {
 }
 
 mainClassName = "ark.agent.App"
-// applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
+applicationDefaultJvmArgs = ["-javaagent:./build/libs/bytefriend.jar"]
 
 def bbversion = "1.7.9"
 
@@ -15,3 +15,16 @@ dependencies {
   compile group: 'net.bytebuddy', name: 'byte-buddy', version: "${bbversion}"
   compile group: 'net.bytebuddy', name: 'byte-buddy-agent', version: "${bbversion}"
 }
+
+jar {
+  manifest {
+    attributes(
+      "Main-Class": "ark.agent.App",
+      "Premain-Class": "ark.agent.Agent",
+      "Can-Redefine-Classes": true,
+      "Can-Retransform-Classes": true
+    )
+  }
+}
+
+run.dependsOn jar

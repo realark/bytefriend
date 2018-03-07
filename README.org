@@ -1,0 +1,2 @@
+* ByteFriend
+Testing Ground for Bytebuddy and Java Agents.

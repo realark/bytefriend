@@ -1,9 +1,13 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
 repositories {
   jcenter()
   mavenCentral()
 }
+
+mainClassName = "ark.agent.App"
+// applicationDefaultJvmArgs = ["-Dgreeting.language=en"]
 
 def bbversion = "1.7.9"
 
